@@ -7,7 +7,7 @@ export class ShoppingListService {
     new Ingredient('tomato', 12),
     new Ingredient('milk', 12.7)
   ];
-  ingredientEmitter = new EventEmitter<Ingredient>();
+  ingredientEmitter = new EventEmitter<void>();
 
   constructor() {}
   getIngredients() {
@@ -15,5 +15,11 @@ export class ShoppingListService {
   }
   onAddIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
+    this.ingredientEmitter.emit();
+  }
+
+  onAddIngredients(ingredients: Ingredient[]) {
+    this.ingredients.push(...ingredients);
+    this.ingredientEmitter.emit();
   }
 }

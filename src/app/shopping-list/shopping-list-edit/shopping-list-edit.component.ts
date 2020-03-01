@@ -15,7 +15,7 @@ export class ShoppingListEditComponent implements OnInit {
   @ViewChild('nameInput', { static: false })
   nameInputRef: ElementRef;
 
-  @ViewChild('amount', { static: false })
+  @ViewChild('amountInput', { static: false })
   amountInputRef: ElementRef;
 
   constructor(private shoppingService: ShoppingListService) {}
