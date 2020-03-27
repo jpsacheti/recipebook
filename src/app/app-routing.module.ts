@@ -3,11 +3,20 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
+import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
+import { NoRecipeSelectedComponent } from './recipes/no-recipe-selected/no-recipe-selected.component';
 
 const appRoutes: Routes = [
   {
     path: 'recipes',
-    component: RecipesComponent
+    component: RecipesComponent,
+    children: [{
+      path: '',
+      component: NoRecipeSelectedComponent
+    },{
+      path: ':id',
+      component: RecipesDetailComponent
+    }]
   },
   {
     path: 'shopping-list',
