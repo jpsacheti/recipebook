@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "estudos"
+    }
+  },
+  "defaultProject": "estudos",
+  "cli": {
+    "analytics": false
+  }
 }
