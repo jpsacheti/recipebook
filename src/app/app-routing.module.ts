@@ -5,18 +5,30 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { RecipesDetailComponent } from './recipes/recipes-detail/recipes-detail.component';
 import { NoRecipeSelectedComponent } from './recipes/no-recipe-selected/no-recipe-selected.component';
+import { RecipesEditComponent } from './recipes/recipes-edit/recipes-edit.component';
 
 const appRoutes: Routes = [
   {
     path: 'recipes',
     component: RecipesComponent,
-    children: [{
-      path: '',
-      component: NoRecipeSelectedComponent
-    },{
-      path: ':id',
-      component: RecipesDetailComponent
-    }]
+    children: [
+      {
+        path: '',
+        component: NoRecipeSelectedComponent
+      },
+      {
+        path: 'new',
+        component: RecipesEditComponent
+      },
+      {
+        path: ':id',
+        component: RecipesDetailComponent
+      },
+      {
+        path: ':id/edit',
+        component: RecipesEditComponent
+      }
+    ]
   },
   {
     path: 'shopping-list',
