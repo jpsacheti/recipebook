@@ -1,5 +1,7 @@
 import { Ingredient } from '../shared/ingredient.model';
 import { Subject } from 'rxjs';
+import { Injectable } from '@angular/core';
+@Injectable()
 export class ShoppingListService {
   private ingredients: Array<Ingredient> = [
     new Ingredient('apple', 10),
@@ -7,7 +9,7 @@ export class ShoppingListService {
     new Ingredient('milk', 12.7)
   ];
   ingredientEmitter = new Subject<void>();
-
+  startedEditing = new Subject<number>();
   constructor() {}
   getIngredients() {
     return this.ingredients.slice();
@@ -19,6 +21,19 @@ export class ShoppingListService {
 
   onAddIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
+    this.ingredientEmitter.next();
+  }
+
+  onUpdateIngredient(index: number, ingredient: Ingredient) {
+    this.ingredients[index] = ingredient;
+    this.ingredientEmitter.next();
+  }
+  getIngredient(index: number) {
+    return this.ingredients[index];
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
     this.ingredientEmitter.next();
   }
 }

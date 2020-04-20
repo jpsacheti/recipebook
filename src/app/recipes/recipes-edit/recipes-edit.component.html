@@ -1,1 +1,51 @@
-<p>recipes-edit works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="imagePath">Image URL</label>
+            <input class="form-control" id="imagePath" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12"><img [src]="" class="img-responsive"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" type="text" rows="6"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- Ingredients -->
+          <div class="row">
+            <div class="col-xs-8"><input type="text" placeholder="Ingredient name" name="ingredientName" id="ingredientName" class="form-control"></div>
+            <div class="col-xs-2"><input type="number" placeholder="Qnt" name="ingredientAmout" id="ingredientAmout" class="form-control"></div>
+            <div class="col-xs-2">
+              <button type="button" class="btn btn-danger">X</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button class="btn btn-success" type="submit">Save</button>
+          <button class="btn btn-danger" type="button">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
