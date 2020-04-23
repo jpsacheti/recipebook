@@ -1,29 +1,30 @@
 <div class="row">
   <div class="col-xs-12">
-    <form (ngSubmit)="onSubmit(formulario)" #formulario="ngForm">
+    <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
       <div class="row">
         <div class="col-sm-5 form-group">
           <label for="name">Name</label
-          ><input type="text" id="name" required name="name" ngModel class="form-control" />
+          ><input class="form-control" id="name" name="name" ngModel required type="text"/>
         </div>
         <div class="col-sm-2 form-group">
           <label for="amount">Amount</label>
           <input
-            type="number"
-            name="amount"
+            class="form-control"
             id="amount"
+            min="0"
+            name="amount"
             ngModel
             required
-            min="0"
-            class="form-control"
+            type="number"
           />
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-success" [disabled]="formulario.invalid">{{editMode ? 'Update' : 'Add'}}</button>
-          <button type="button" class="btn btn-danger" *ngIf="editMode" (click)="onDeleteItem()">Delete</button>
-          <button type="button" class="btn btn-primary"  (click)="reset(formulario)">Clear</button>
+          <button [disabled]="formulario.invalid" class="btn btn-success"
+                  type="submit">{{editMode ? 'Update' : 'Add'}}</button>
+          <button (click)="onDeleteItem()" *ngIf="editMode" class="btn btn-danger" type="button">Delete</button>
+          <button (click)="reset(formulario)" class="btn btn-primary" type="button">Clear</button>
         </div>
       </div>
     </form>
