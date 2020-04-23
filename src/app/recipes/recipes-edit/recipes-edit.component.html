@@ -33,11 +33,11 @@
           <!-- Ingredients -->
           <div class="row" *ngFor="let control of ingControls; let i = index;" [formGroupName]="i" style="margin-top: 10px">
             <div class="col-xs-8" >
-              <input class="form-control" id="ingredientName" formControlName="ingredientName"
+              <input class="form-control" id="ingredientName" formControlName="name"
                      placeholder="Ingredient name" type="text">
             </div>
             <div class="col-xs-2">
-              <input class="form-control" id="ingredientAmount" formControlName="ingredientAmount"
+              <input class="form-control" id="ingredientAmount" formControlName="amount"
                      placeholder="Qnt" min="0"
                      type="number">
             </div>

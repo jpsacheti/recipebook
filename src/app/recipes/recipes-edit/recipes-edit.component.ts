@@ -30,13 +30,18 @@ export class RecipesEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.recipeForm);
+    const formValues = this.recipeForm.value;
+    if (this.editMode) {
+      this.recipeService.mergeRecipe(formValues, this.id);
+    } else {
+      this.recipeService.mergeRecipe(formValues);
+    }
   }
 
   onAddIngredient() {
     const formGroup = new FormGroup({
-      ingredientName: new FormControl(null, Validators.required),
-      ingredientAmount: new FormControl(null, [Validators.min(0), Validators.required])
+      name: new FormControl(null, Validators.required),
+      amount: new FormControl(null, [Validators.min(0), Validators.required])
     });
     this.ingControls.push(formGroup);
   }
@@ -53,8 +58,8 @@ export class RecipesEditComponent implements OnInit {
       imagePath = recipe.imagePath;
       recipe.ingredients.forEach(ing => {
         const formGroup = new FormGroup({
-          ingredientName: new FormControl(ing.name, Validators.required),
-          ingredientAmount: new FormControl(ing.amount, [Validators.min(0), Validators.required])
+          name: new FormControl(ing.name, Validators.required),
+          amount: new FormControl(ing.amount, [Validators.min(0), Validators.required])
         });
         recipeIngredients.push(formGroup);
       });
