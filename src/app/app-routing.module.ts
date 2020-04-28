@@ -5,6 +5,7 @@ import {ShoppingListComponent} from './shopping-list/shopping-list.component';
 import {RecipesDetailComponent} from './recipes/recipes-detail/recipes-detail.component';
 import {NoRecipeSelectedComponent} from './recipes/no-recipe-selected/no-recipe-selected.component';
 import {RecipesEditComponent} from './recipes/recipes-edit/recipes-edit.component';
+import {RecipeResolverService} from './recipes/recipe-resolver.service';
 
 const appRoutes: Routes = [
   {
@@ -21,11 +22,13 @@ const appRoutes: Routes = [
       },
       {
         path: ':id',
-        component: RecipesDetailComponent
+        component: RecipesDetailComponent,
+        resolve: [RecipeResolverService]
       },
       {
         path: ':id/edit',
-        component: RecipesEditComponent
+        component: RecipesEditComponent,
+        resolve: [RecipeResolverService]
       }
     ]
   },
@@ -41,7 +44,7 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(appRoutes, {enableTracing: true})],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {

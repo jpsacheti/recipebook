@@ -8,29 +8,7 @@ import {Subject} from 'rxjs';
 export class RecipesService {
   slService: ShoppingListService;
   updatedRecipes: Subject<void> = new Subject<void>();
-  private recipes: Array<Recipe> = [
-    new Recipe(
-      'Pancakes',
-      'It\' nice for breakfast!',
-      'https://cdn.pixabay.com/photo/2019/07/17/09/19/strawberry-cake-4343499_960_720.jpg',
-      [
-        new Ingredient('eggs', 1),
-        new Ingredient('milk', 0.5),
-        new Ingredient('flour', 10)
-      ]
-    ),
-    new Recipe(
-      'Strawberry cake',
-      'Perfect for parties',
-      'https://cdn.pixabay.com/photo/2019/07/17/09/19/strawberry-cake-4343499_960_720.jpg',
-      [
-        new Ingredient('eggs', 1),
-        new Ingredient('milk', 0.5),
-        new Ingredient('flour', 10),
-        new Ingredient('strawberry', 10)
-      ]
-    )
-  ];
+  private recipes: Array<Recipe> = [];
 
   constructor(slService: ShoppingListService) {
     this.slService = slService;
@@ -38,6 +16,11 @@ export class RecipesService {
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipes = recipes;
+    this.updatedRecipes.next();
   }
 
   getRecipe(id: number) {
