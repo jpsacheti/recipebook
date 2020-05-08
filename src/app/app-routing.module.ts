@@ -6,6 +6,7 @@ import {RecipesDetailComponent} from './recipes/recipes-detail/recipes-detail.co
 import {NoRecipeSelectedComponent} from './recipes/no-recipe-selected/no-recipe-selected.component';
 import {RecipesEditComponent} from './recipes/recipes-edit/recipes-edit.component';
 import {RecipeResolverService} from './recipes/recipe-resolver.service';
+import {AuthComponent} from './auth/auth.component';
 
 const appRoutes: Routes = [
   {
@@ -40,6 +41,10 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: '/recipes',
     pathMatch: 'full'
+  },
+  {
+    path: 'auth',
+    component: AuthComponent
   }
 ];
 

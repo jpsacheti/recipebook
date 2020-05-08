@@ -17,6 +17,8 @@ import {NoRecipeSelectedComponent} from './recipes/no-recipe-selected/no-recipe-
 import {RecipesEditComponent} from './recipes/recipes-edit/recipes-edit.component';
 import {RecipesService} from './recipes/recipes.service';
 import {HttpClientModule} from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
+import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {HttpClientModule} from '@angular/common/http';
     ShoppingListEditComponent,
     DropdownDirective,
     NoRecipeSelectedComponent,
-    RecipesEditComponent
+    RecipesEditComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule, HttpClientModule],
   providers: [ShoppingListService, RecipesService],
