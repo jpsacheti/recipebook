@@ -8,6 +8,9 @@
     },
     "component-class-suffix": true,
     "contextual-lifecycle": true,
+    "variable-name": {
+      "options": "allow-leading-underscore"
+    },
     "directive-class-suffix": true,
     "directive-selector": [
       true,
